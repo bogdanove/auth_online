@@ -4,7 +4,7 @@ install-golangci-lint:
 	GOBIN=$(LOCAL_BIN) go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.60.3
 
 lint:
-	GOBIN=$(LOCAL_BIN) golangci-lint run ./... --config .golangci.pipeline.yaml
+	golangci-lint run ./... --config .golangci.pipeline.yaml
 
 build:
 	GOOS=linux GOARCH=amd64 go build -o service_linux cmd/main.go

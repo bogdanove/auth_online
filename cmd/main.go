@@ -7,14 +7,15 @@ import (
 	"net"
 	"time"
 
-	"github.com/bogdanove/auth/internal/config"
-	"github.com/bogdanove/auth/internal/config/env"
-	"github.com/bogdanove/auth/pkg/user_v1"
 	"github.com/brianvoe/gofakeit"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 	"google.golang.org/protobuf/types/known/emptypb"
 	"google.golang.org/protobuf/types/known/timestamppb"
+
+	"github.com/bogdanove/auth/internal/config"
+	"github.com/bogdanove/auth/internal/config/env"
+	"github.com/bogdanove/auth/pkg/user_v1"
 )
 
 var configPath string
