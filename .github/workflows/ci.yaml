@@ -56,5 +56,8 @@ jobs:
             # Remove old container
             docker rm $CONTAINER_NAME
             
+            # Up database and migration
+            docker-compose up --build -d
+            
             # Run a new container from a new image
             docker run -d -p 50051:50051 --name $CONTAINER_NAME -t $REGISTRY/$IMAGE_NAME:$TAG_NAME
