@@ -1,5 +1,5 @@
 #!/bin/bash
-source prod.env
+source .env
 
 MIGRATION_DIR=$(echo "$MIGRATION_DIR" | tr -d '[:space:]')
 

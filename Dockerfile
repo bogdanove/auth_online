@@ -11,4 +11,6 @@ FROM alpine:latest
 WORKDIR /root/
 COPY --from=builder /github.com/bogdanove/auth/source/bin/auth .
 
+ADD .env .
+
 CMD ["./auth"]
