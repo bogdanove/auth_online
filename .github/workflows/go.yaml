@@ -120,11 +120,11 @@ jobs:
             fi
             
             # Запускаем мигратор
-            docker stop $CONTAINER_MIGRATION_NAME || echo "Контейнер $CONTAINER_MIGRATION_NAME не запущен"
-            docker rm $CONTAINER_MIGRATION_NAME || echo "Контейнер $CONTAINER_MIGRATION_NAME не существует"
-            docker run --network auth-network --name $CONTAINER_MIGRATION_NAME \
+            docker stop auth_migrator || echo "Контейнер auth_migrator не запущен"
+            docker rm auth_migrator || echo "Контейнер auth_migrator не существует"
+            docker run --network auth-service-network --name auth_migrator \
             --env-file .env \
-            -e DB_HOST=$DB_CONTAINER_NAME -t $REGISTRY/$IMAGE_MIGRATION_NAME:$TAG_NAME || echo "Ошибка запуска контейнера миграций"
+            -e DB_HOST=$DB_CONTAINER_NAME -t $REGISTRY/auth_migrator:$TAG_NAME || echo "Ошибка запуска контейнера миграций"
             
             # Запуск сервера авторизации
             TAG_NAME=$(echo $GITHUB_SHA | head -c7)
