@@ -117,6 +117,7 @@ jobs:
             -e POSTGRES_PASSWORD=${{ secrets.PG_PASSWORD }} \
             -v postgres_data:/var/lib/postgresql/data \
             -p 54328:5432 $DB_IMAGE_NAME
+            fi
             
             # Запускаем мигратор
             docker stop $CONTAINER_MIGRATION_NAME || echo "Контейнер $CONTAINER_MIGRATION_NAME не запущен"
